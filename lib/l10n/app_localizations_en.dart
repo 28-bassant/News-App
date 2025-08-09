@@ -34,4 +34,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get home => 'Home';
+
+  @override
+  String get try_again => 'Try Again';
+
+  @override
+  String get something_went_wrong => 'Something went wrong';
 }

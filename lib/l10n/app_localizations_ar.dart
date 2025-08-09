@@ -34,4 +34,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get home => 'الصفحة الرئيسية';
+
+  @override
+  String get try_again => 'حاول مرة أخرى';
+
+  @override
+  String get something_went_wrong => 'حدث خطأ ما';
 }
