@@ -7,5 +7,7 @@
 "language" : "Language",
 "arabic" : "Arabic",
 "english" : "English",
-"home" : "Home"
+"home" : "Home",
+"try_again" : "Try Again",
+"something_went_wrong" : "Something went wrong"
 }

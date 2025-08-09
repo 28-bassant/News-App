@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/home_screen/category_details/category_details.dart';
 import 'package:news_app/home_screen/drawer_widget/drawer_widget.dart';
 import 'package:news_app/utils/app_colors.dart';
 import 'package:news_app/l10n/app_localizations.dart';
@@ -21,6 +22,7 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: AppColors.blackColor,
         child: DrawerWidget()
       ),
+      body: CategoryDetails(),
 
     );
   }
