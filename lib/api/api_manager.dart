@@ -16,9 +16,10 @@ class ApiManager {
   static void setLanguageProvider(BuildContext context) {
     languageProvider = Provider.of<AppLanguageProvider>(context, listen: false);
   }
-  static Future<SourceResponse>? getSources() async {
+  static Future<SourceResponse>? getSources(String category) async {
     Uri url = Uri.https(ApiConstants.baseUrl, EndPoints.sourceApi, {
       'apiKey': ApiConstants.apiKey,
+      'category' : category,
     });
     var response = await http.get(url);
     var responseBody = response.body; //todo: String

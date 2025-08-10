@@ -10,7 +10,8 @@ import '../../utils/app_colors.dart';
 import '../../utils/app_styles.dart';
 
 class DrawerWidget extends StatefulWidget {
-  const DrawerWidget({super.key});
+  VoidCallback onHomeClick;
+   DrawerWidget({super.key,required this.onHomeClick});
 
   @override
   State<DrawerWidget> createState() => _DrawerWidgetState();
@@ -34,6 +35,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
         SizedBox(height: height * .02),
         InkWell(
           onTap: () {
+            widget.onHomeClick();
             Navigator.pop(context);
           },
           child: Row(
