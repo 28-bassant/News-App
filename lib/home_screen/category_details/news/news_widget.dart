@@ -25,7 +25,7 @@ class _NewsWidgetState extends State<NewsWidget> {
     var height = MediaQuery.of(context).size.height;
     var languageProvider = Provider.of<AppLanguageProvider>(context);
     return FutureBuilder<NewsResponse>(
-        future: ApiManager.getNewsBySourceId(widget.source.id ?? '',),
+        future: ApiManager.getNewsBySourceId(widget.source.id ?? '',''),
         builder: (context, snapshot) {
           //todo : Loading
           if(snapshot.connectionState == ConnectionState.waiting){
@@ -48,7 +48,7 @@ class _NewsWidgetState extends State<NewsWidget> {
                             backgroundColor: AppColors.greyColor
                         ),
                         onPressed: () {
-                          ApiManager.getNewsBySourceId(widget.source.id ?? '',);
+                          ApiManager.getNewsBySourceId(widget.source.id ?? '','');
                           setState(() {
 
                           });
@@ -73,7 +73,7 @@ class _NewsWidgetState extends State<NewsWidget> {
                             backgroundColor: AppColors.greyColor
                         ),
                         onPressed: () {
-                          ApiManager.getNewsBySourceId(widget.source.id ?? '',);
+                          ApiManager.getNewsBySourceId(widget.source.id ?? '','');
                           setState(() {
 
                           });

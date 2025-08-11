@@ -5,6 +5,7 @@ import 'package:news_app/home_screen/category_fragment/category_fragment.dart';
 import 'package:news_app/home_screen/drawer_widget/drawer_widget.dart';
 import 'package:news_app/utils/app_colors.dart';
 import 'package:news_app/l10n/app_localizations.dart';
+import 'package:news_app/utils/app_routes.dart';
 
 import '../utils/app_assets.dart';
 
@@ -22,6 +23,13 @@ class _HomeScreenState extends State<HomeScreen> {
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          InkWell(
+            onTap: () {
+              Navigator.pushNamed(context,AppRoutes.searchRouteName);
+            },
+              child: Icon(Icons.search,color: Theme.of(context).indicatorColor,size: 35,))
+        ],
         title: Text(
           selectedCategory == null ?
           AppLocalizations.of(context)!.home :

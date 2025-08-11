@@ -20,6 +20,7 @@ class CategoryFragment extends StatelessWidget {
     return Padding(
       padding:  EdgeInsets.symmetric(horizontal: width * .04),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text('Good Morning\nHere is Some News For You',style: Theme.of(context).textTheme.headlineMedium,),
           SizedBox(height: height * .02,),
