@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:news_app/api/models/SourceResponse.dart';
+import 'package:news_app/api/models/category.dart';
 import 'package:news_app/home_screen/home_screen.dart';
+import 'package:news_app/home_screen/search_screen/search_screen.dart';
 import 'package:news_app/providers/app_language_provider.dart';
 import 'package:news_app/providers/app_theme_provider.dart';
 import 'package:news_app/utils/app_routes.dart';
@@ -20,10 +23,12 @@ void main(){
 
 }
 class MyApp extends StatelessWidget{
+
   @override
   Widget build(BuildContext context) {
     var themeProvider = Provider.of<AppThemeProvider>(context);
     var languageProvider = Provider.of<AppLanguageProvider>(context);
+
 
     return MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
@@ -32,6 +37,7 @@ class MyApp extends StatelessWidget{
       initialRoute: AppRoutes.homeRouteName,
       routes: {
         AppRoutes.homeRouteName : (context) => HomeScreen(),
+        AppRoutes.searchRouteName : (context) => SearchScreen(source: Source(),),
       },
       themeMode:themeProvider.appTheme,
       theme: AppTheme.lightTheme,

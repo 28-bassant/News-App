@@ -6,16 +6,14 @@ import 'package:news_app/api/api_constants.dart';
 import 'package:news_app/api/endpoints.dart';
 import 'package:news_app/api/models/NewsResponse.dart';
 import 'package:news_app/api/models/SourceResponse.dart';
+import 'package:news_app/home_screen/search_screen/search_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/app_language_provider.dart';
 
 class ApiManager {
-  static late AppLanguageProvider languageProvider;
 
-  static void setLanguageProvider(BuildContext context) {
-    languageProvider = Provider.of<AppLanguageProvider>(context, listen: false);
-  }
+
   static Future<SourceResponse>? getSources(String category) async {
     Uri url = Uri.https(ApiConstants.baseUrl, EndPoints.sourceApi, {
       'apiKey': ApiConstants.apiKey,
@@ -29,10 +27,12 @@ class ApiManager {
     return SourceResponse.fromJson(json);
   }
 
-  static Future<NewsResponse>? getNewsBySourceId(String sourceId) async{
+  static Future<NewsResponse>? getNewsBySourceId(String sourceId,String query) async{
     Uri url = Uri.https(ApiConstants.baseUrl, EndPoints.newsApi, {
       'apiKey': ApiConstants.apiKey,
       'sources': sourceId,
+      'q' : query,
+      'searchIn' : 'title'
 
     });
     var response = await http.get(url);
