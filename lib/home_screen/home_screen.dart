@@ -26,7 +26,8 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           InkWell(
             onTap: () {
-              Navigator.pushNamed(context,AppRoutes.searchRouteName);
+              Navigator.pushNamed(context,AppRoutes.searchRouteName,arguments: CategoryFragment(onCategoryItemClick: onCategoryItemClick));
+
             },
               child: Icon(Icons.search,color: Theme.of(context).indicatorColor,size: 35,))
         ],

@@ -14,10 +14,11 @@ import '../providers/app_language_provider.dart';
 class ApiManager {
 
 
-  static Future<SourceResponse>? getSources(String category) async {
+  static Future<SourceResponse>? getSources(String category,String language) async {
     Uri url = Uri.https(ApiConstants.baseUrl, EndPoints.sourceApi, {
       'apiKey': ApiConstants.apiKey,
       'category' : category,
+      'language' : language
     });
     var response = await http.get(url);
     var responseBody = response.body; //todo: String
@@ -27,14 +28,17 @@ class ApiManager {
     return SourceResponse.fromJson(json);
   }
 
-  static Future<NewsResponse>? getNewsBySourceId(String sourceId,String query) async{
+static Future<NewsResponse>? getNewsBySourceId(String sourceId,String language) async{
+
     Uri url = Uri.https(ApiConstants.baseUrl, EndPoints.newsApi, {
       'apiKey': ApiConstants.apiKey,
       'sources': sourceId,
-      'q' : query,
-      'searchIn' : 'title'
+      'searchIn' : 'title',
+      'language' : language,
+
 
     });
+
     var response = await http.get(url);
     var responseBody = response.body; //todo: String
     //todo : String => Json
@@ -43,5 +47,7 @@ class ApiManager {
     return NewsResponse.fromJson(json);
 
   }
+
+
 
 }
