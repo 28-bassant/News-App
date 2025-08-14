@@ -20,9 +20,11 @@ class CategoryDetails extends StatefulWidget {
 class _CategoryDetailsState extends State<CategoryDetails> {
   @override
   Widget build(BuildContext context) {
+    var languageProvider = Provider.of<AppLanguageProvider>(context);
+
     var width = MediaQuery.of(context).size.width;
     return FutureBuilder<SourceResponse>(
-        future: ApiManager.getSources(widget.category.id),
+        future: ApiManager.getSources(widget.category.id,languageProvider.appLanguage),
         builder: (context, snapshot) {
           //todo : Loading
           if(snapshot.connectionState == ConnectionState.waiting){
@@ -45,7 +47,7 @@ class _CategoryDetailsState extends State<CategoryDetails> {
                         backgroundColor: AppColors.greyColor
                       ),
                         onPressed: () {
-                          ApiManager.getSources(widget.category.id);
+                          ApiManager.getSources(widget.category.id,languageProvider.appLanguage);
                           setState(() {
 
                           });
@@ -70,7 +72,7 @@ class _CategoryDetailsState extends State<CategoryDetails> {
                             backgroundColor: AppColors.greyColor
                         ),
                         onPressed: () {
-                          ApiManager.getSources(widget.category.id);
+                          ApiManager.getSources(widget.category.id,languageProvider.appLanguage);
                           setState(() {
 
                           });

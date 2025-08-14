@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:news_app/api/models/NewsResponse.dart';
 import 'package:news_app/api/models/SourceResponse.dart';
 import 'package:news_app/api/models/category.dart';
 import 'package:news_app/home_screen/home_screen.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget{
   Widget build(BuildContext context) {
     var themeProvider = Provider.of<AppThemeProvider>(context);
     var languageProvider = Provider.of<AppLanguageProvider>(context);
+
 
 
     return MaterialApp(
