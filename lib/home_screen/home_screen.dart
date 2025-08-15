@@ -7,9 +7,11 @@ import 'package:news_app/utils/app_colors.dart';
 import 'package:news_app/l10n/app_localizations.dart';
 import 'package:news_app/utils/app_routes.dart';
 
+import '../api/models/SourceResponse.dart';
 import '../utils/app_assets.dart';
 
 class HomeScreen extends StatefulWidget {
+
    HomeScreen({super.key});
 
   @override
@@ -17,6 +19,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  Source? selectedSource;
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -26,7 +29,10 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           InkWell(
             onTap: () {
-              Navigator.pushNamed(context,AppRoutes.searchRouteName,arguments: CategoryFragment(onCategoryItemClick: onCategoryItemClick));
+              Navigator.pushNamed(
+                context,
+                AppRoutes.searchRouteName,
+              );
 
             },
               child: Icon(Icons.search,color: Theme.of(context).indicatorColor,size: 35,))
@@ -65,6 +71,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
     });
 
+    void onSourceClick(Source newSource) {
+      selectedSource = newSource;
+      setState(() {});
+    }
 
   }
 }
